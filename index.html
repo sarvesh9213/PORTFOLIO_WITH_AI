@@ -1,812 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarvesh Pandey - Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarvesh Pandey | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      :root {
+        --primary-color: #00ffe7;
+        --secondary-color: #ff0055;
+        --bg-color: #0f0f0f;
+        --text-color: #ffffff;
+        --muted-text: #ccc;
+        --font-main: "Poppins", sans-serif;
+        --font-heading: "Orbitron", sans-serif;
+      }
 
-        :root {
-            --primary-color: #00d4ff;
-            --secondary-color: #ff6b6b;
-            --accent-color: #4ecdc4;
-            --text-light: #ffffff;
-            --text-dark: #2c3e50;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-light);
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+      html,
+      body {
+        scroll-behavior: smooth;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: var(--font-main);
+      }
 
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
+      header {
+        height: 100vh;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.8),
+            rgba(15, 15, 15, 0.8)
+          ),
+          url("assets/images/your-photo.jpg") center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      }
 
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
+      .hero-text h1 {
+        font-size: 4.5rem;
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+        text-shadow: 0 0 20px var(--primary-color);
+      }
 
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--gradient-3);
-            opacity: 0.1;
-            animation: float 20s infinite linear;
-        }
+      .hero-text p {
+        font-size: 1.4rem;
+        color: var(--muted-text);
+        margin-top: 1rem;
+        max-width: 600px;
+      }
 
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1rem 2rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        backdrop-filter: blur(6px);
+      }
 
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 70%;
-            right: 10%;
-            animation-delay: -5s;
-        }
+      nav a {
+        color: var(--primary-color);
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: 500;
+        transition: 0.3s;
+      }
 
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 40%;
-            left: 80%;
-            animation-delay: -10s;
-        }
+      nav a:hover {
+        color: var(--secondary-color);
+        text-shadow: 0 0 5px var(--secondary-color);
+      }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            33% {
-                transform: translateY(-30px) rotate(120deg);
-            }
-            66% {
-                transform: translateY(30px) rotate(240deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg);
-            }
-        }
+      section {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
 
-        /* Glass morphism components */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-        }
+      h2 {
+        font-size: 2.7rem;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+        font-family: var(--font-heading);
+        text-align: center;
+        text-transform: uppercase;
+      }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            padding: 15px 30px;
-            transition: all 0.3s ease;
-        }
+      .content-box {
+        background-color: #1a1a1a;
+        padding: 1.5rem;
+        border-left: 5px solid var(--primary-color);
+        margin: 1.5rem 0;
+        box-shadow: 0 0 15px #00ffe755;
+        border-radius: 10px;
+      }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
 
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 10px 0;
-        }
+      .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        box-shadow: 0 0 10px var(--primary-color);
+      }
 
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px var(--secondary-color);
+      }
 
-        nav a:hover::before {
-            width: 100%;
-        }
+      form {
+        display: grid;
+        gap: 1rem;
+      }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
+      input,
+      textarea {
+        padding: 1rem;
+        border-radius: 5px;
+        border: none;
+        background: #2a2a2a;
+        color: var(--text-color);
+      }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: 0 20px;
-        }
+      button {
+        padding: 1rem;
+        background-color: var(--primary-color);
+        border: none;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 10;
-        }
+      button:hover {
+        background-color: var(--secondary-color);
+        color: #fff;
+      }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: var(--gradient-3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideInUp 1s ease-out;
-        }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+        color: #aaa;
+        border-top: 1px solid #333;
+      }
 
-        .hero .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            line-height: 1.8;
-            animation: slideInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: slideInUp 1s ease-out 0.6s both;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--gradient-3);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-light);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        /* Profile Image */
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
-            margin: 0 auto 40px;
-            overflow: hidden;
-            position: relative;
-            animation: slideInUp 1s ease-out 0.8s both;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 60px;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .skill-card {
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .skill-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .skill-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--text-light);
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .project-card {
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-2);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .project-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        /* Animations */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--primary-color);
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 15px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .profile-image {
-                width: 250px;
-                height: 250px;
-            }
-            
-            section {
-                padding: 50px 15px;
-            }
-        }
-
-        /* Photo Gallery */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .photo-item {
-            aspect-ratio: 1;
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .photo-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Achievement Cards */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .achievement-card {
-            padding: 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .achievement-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-3);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-        }
-
-        .achievement-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .achievement-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
+      .socials a {
+        color: var(--primary-color);
+        margin: 0 10px;
+        font-size: 1.5rem;
+      }
     </style>
-</head>
-<body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="glass">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div><strong>Sarvesh Pandey</strong></div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="profile-image">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23667eea'/%3E%3Ctext x='150' y='150' font-family='Arial' font-size='24' fill='white' text-anchor='middle' dy='.3em'%3EYour Photo Here%3C/text%3E%3C/svg%3E" alt="Sarvesh Pandey">
-            </div>
-            <h1>Sarvesh Pandey</h1>
-            <p class="subtitle">Developer in the Making</p>
-            <p class="description">
-                Ambitious B.Tech IT student passionate about building innovative solutions. 
-                Transforming ideas into elegant code, one project at a time.
-            </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> View My Work
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+    <header>
+      <div class="hero-text">
+        <h1>Sarvesh Pandey</h1>
+        <p>
+          Future Full Stack Developer | DSA Enthusiast | Clean Code Advocate
+        </p>
+      </div>
+    </header>
 
-    <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="glass" style="padding: 50px; text-align: center;">
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px;">
-                I'm an ambitious and passionate engineering student currently pursuing B.Tech in Information Technology 
-                from Guru Gobind Singh Indraprastha University (IPU). From a young age, I've been drawn to logic, 
-                structure, and building things from scratch.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
-                My philosophy: <strong>"Consistency beats intensity."</strong> I believe in showing up every single day, 
-                doing the work when required, and ensuring continuous improvement. My goal is to crack high-paying, 
-                product-based tech companies and build systems that solve real problems.
-            </p>
-        </div>
+      <h2>About Me</h2>
+      <div class="content-box">
+        <p>
+          Hey, I'm Sarvesh! I’m currently pursuing B.Tech in IT from GGSIPU.
+          I've always been passionate about tech, starting with strong academic
+          performance in CBSE and now diving deep into Web Development, Java,
+          and DSA. My mission is to become an elite developer capable of solving
+          real-world problems and landing high-impact roles in product-based
+          companies. Every day I work on mastering the fundamentals and applying
+          them with creativity.
+        </p>
+      </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card glass">
-                <div class="skill-icon">
-                    <i class="fab fa-react"></i>
-                </div>
-                <h3>React.js</h3>
-                <p>Building interactive UI components and single-page applications with modern React patterns, hooks, and state management.</p>
-            </div>
-            <div class="skill-card glass">
-                <div class="skill-icon">
-                    <i class="fab fa-js-square"></i>
-                </div>
-                <h3>JavaScript</h3>
-                <p>ES6+ features, asynchronous programming, DOM manipulation, and modern JavaScript development practices.</p>
-            </div>
-            <div class="skill-card glass">
-                <div class="skill-icon">
-                    <i class="fab fa-java"></i>
-                </div>
-                <h3>Java + DSA</h3>
-                <p>Data Structures and Algorithms with Java. Active on LeetCode and GFG, focusing on problem-solving and optimization.</p>
-            </div>
-            <div class="skill-card glass">
-                <div class="skill-icon">
-                    <i class="fab fa-git-alt"></i>
-                </div>
-                <h3>Git & GitHub</h3>
-                <p>Version control, repository management, collaborative development, and open-source contribution.</p>
-            </div>
-        </div>
+      <h2>Skills</h2>
+      <div class="content-box">Frontend: HTML, CSS, JavaScript, React.js</div>
+      <div class="content-box">
+        Backend Logic & Algorithms: Java, Data Structures & Algorithms
+      </div>
+      <div class="content-box">Version Control: Git & GitHub</div>
+      <div class="content-box">UI Design Principles and Responsive Layouts</div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card glass">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Food Delivery App</h3>
-                <p style="margin-bottom: 20px; opacity: 0.9;">
-                    A complete food delivery application built with React.js featuring user authentication, 
-                    cart management, and responsive design.
-                </p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">React</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">JavaScript</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">CSS3</span>
-                </div>
-            </div>
-            <div class="project-card glass">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Component Library</h3>
-                <p style="margin-bottom: 20px; opacity: 0.9;">
-                    Reusable React component library with modern design patterns, 
-                    proper documentation, and npm package distribution.
-                </p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">React</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">Storybook</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">NPM</span>
-                </div>
-            </div>
-            <div class="project-card glass">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">DSA Problem Tracker</h3>
-                <p style="margin-bottom: 20px; opacity: 0.9;">
-                    Personal dashboard to track DSA progress, analyze problem-solving patterns, 
-                    and maintain consistency in competitive programming.
-                </p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">Java</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">Algorithms</span>
-                    <span style="background: rgba(0,212,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">Data Structures</span>
-                </div>
-            </div>
-        </div>
+      <h2>Projects</h2>
+      <div class="content-box">
+        🍱 <strong>Food App</strong> - Built using React with reusable
+        components and prop-driven architecture.
+      </div>
+      <div class="content-box">
+        🔁 <strong>DSA Library</strong> - A collection of Java programs with
+        time/space analysis (sorting, searching, reversing, etc.).
+      </div>
+      <div class="content-box">
+        🌐 <strong>This Portfolio</strong> - Stylish, responsive website built
+        from scratch using HTML/CSS/JS.
+      </div>
     </section>
 
-    <!-- Photo Gallery -->
-    <section id="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <div class="photo-gallery">
-            <div class="photo-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%234facfe'/%3E%3Ctext x='100' y='100' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dy='.3em'%3EProfessional%3C/text%3E%3C/svg%3E" alt="Professional Photo">
-            </div>
-            <div class="photo-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f093fb'/%3E%3Ctext x='100' y='100' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dy='.3em'%3ECoding Setup%3C/text%3E%3C/svg%3E" alt="Coding Setup">
-            </div>
-            <div class="photo-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%234ecdc4'/%3E%3Ctext x='100' y='100' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dy='.3em'%3EWorkout%3C/text%3E%3C/svg%3E" alt="Workout Photo">
-            </div>
-            <div class="photo-item">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23667eea'/%3E%3Ctext x='100' y='100' font-family='Arial' font-size='16' fill='white' text-anchor='middle' dy='.3em'%3EProject Demo%3C/text%3E%3C/svg%3E" alt="Project Demo">
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
     <section id="achievements">
-        <h2 class="section-title">Achievements & Goals</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card glass">
-                <div class="achievement-icon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h3>Academic Excellence</h3>
-                <p>Strong CBSE results with consistent performance and love for learning throughout school years.</p>
-            </div>
-            <div class="achievement-card glass">
-                <div class="achievement-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Multiple Projects</h3>
-                <p>Built several React applications, component libraries, and solved 200+ DSA problems across platforms.</p>
-            </div>
-            <div class="achievement-card glass">
-                <div class="achievement-icon">
-                    <i class="fas fa-target"></i>
-                </div>
-                <h3>Career Goals</h3>
-                <p>Targeting 13-14 LPA placements with long-term vision of 50-60 LPA in product-based companies.</p>
-            </div>
-            <div class="achievement-card glass">
-                <div class="achievement-icon">
-                    <i class="fas fa-dumbbell"></i>
-                </div>
-                <h3>Discipline & Fitness</h3>
-                <p>Consistent gym routine and protein-rich diet that fuels both mental and physical performance.</p>
-            </div>
-        </div>
+      <h2>Achievements</h2>
+      <div class="content-box">🎓 9.4 CGPA in 1st Semester (IPU)</div>
+      <div class="content-box">🏆 Top 10% in CBSE Board Exams</div>
+      <div class="content-box">💻 100+ GitHub commits and growing</div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-grid">
-            <div class="contact-item glass">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <p>sarvesh.pandey8434@gmail.com</p>
-                <a href="https://www.linkedin.com/in/sarvesh-pandey-0b8b54321/" class="btn btn-primary" style="margin-top: 15px;">
-                    Send Email
-                </a>
-            </div>
-            <div class="contact-item glass">
-                <div class="contact-icon">
-                    <i class="fab fa-linkedin"></i>
-                </div>
-                <h3>LinkedIn</h3>
-                <p>Professional Network</p>
-                <a href="https://www.linkedin.com/in/sarvesh-pandey-0b8b54321/" class="btn btn-primary" style="margin-top: 15px;">
-                    Connect
-                </a>
-            </div>
-            <div class="contact-item glass">
-                <div class="contact-icon">
-                    <i class="fab fa-github"></i>
-                </div>
-                <h3>GitHub</h3>
-                <p>Code Repository</p>
-                <a href="https://github.com/sarvesh9213" class="btn btn-primary" style="margin-top: 15px;">
-                    View Code
-                </a>
-            </div>
-            <div class="contact-item glass">
-                <div class="contact-icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <h3>Phone</h3>
-                <p>+91 8826335565</p>
-                <a href="tel:+91XXXXXXXXX" class="btn btn-primary" style="margin-top: 15px;">
-                    Call Now
-                </a>
-            </div>
-        </div>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="assets/images/photo1.jpg" alt="Photo 1" />
+        <img src="assets/images/photo2.jpg" alt="Photo 2" />
+        <img src="assets/images/photo3.jpg" alt="Photo 3" />
+      </div>
     </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="content-box">
+        <form
+          action="https://formsubmit.co/your-email@example.com"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="socials" style="text-align: center; margin-top: 1rem">
+        <a href="https://github.com/yourgithub" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://linkedin.com/in/yourlinkedin" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="mailto:youremail@example.com"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Sarvesh Pandey. Built with 💻 & ❤️</p>
+    </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Hide scroll indicator after first scroll
-        let hasScrolled = false;
-        window.addEventListener('scroll', function() {
-            if (!hasScrolled) {
-                const scrollIndicator = document.querySelector('.scroll-indicator');
-                if (scrollIndicator) {
-                    scrollIndicator.style.opacity = '0';
-                    scrollIndicator.style.pointerEvents = 'none';
-                }
-                hasScrolled = true;
-            }
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.2)';
-                nav.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.2)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.1)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        });
-
-        // Add 'animate' class to sections when they enter viewport
-        document.querySelectorAll('section, .skills-grid > *, .projects-grid > *, .photo-gallery > *, .achievements-grid > *, .contact-grid > *').forEach(el => {
-            observer.observe(el);
-        });
+      console.log("Welcome to Sarvesh's futuristic portfolio 🚀");
+    </script>
+  </body>
+</html>
